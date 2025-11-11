@@ -13,13 +13,17 @@ class Root(customtkinter.CTk):
         self.sequencer = SequencerFrame(self)
 
         # position frames
-        self.sequencer.grid(row=0, column=0)
+        self.sequencer.grid(row=3, column=0)
+
+        self.grid_columnconfigure(0, weight=1)
 
         
 
 
 def main():
     root = Root()
+    root.sequencer.init_steps()
+    root.sequencer.position_steps()
     root.mainloop()
 
 main()
