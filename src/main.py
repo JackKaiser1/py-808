@@ -25,10 +25,8 @@ class Root(customtkinter.CTk):
 
 def main():
     root = Root()
-    root.sequencer.init_steps()
-    root.sequencer.position_steps()
-    root.sound_select_buttons.init_sound_buttons()
-    root.sound_select_buttons.position_sound_buttons()
+    root.sequencer.create()
+    root.sound_select_buttons.create()
     root.mainloop()
 
 main()

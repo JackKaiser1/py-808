@@ -1,32 +1,36 @@
+import sys
+sys.path.append("/home/jackk/dev/github.com/jackkaiser1/py_808/src")
+
 import unittest
-from src.sequencer import StepButton, SequencerFrame
-from src.constants import *
 import customtkinter 
+import src.sequencer
+import src.constants
+from src.sequencer import SequencerFrame, StepButton
+from src.constants import *
 
 root = customtkinter.CTk()
 
-# class TestStepButton(unittest.TestCase):
-#     def test_height(self):
-#         step = StepButton(root)
-#         self.assertEqual(55, step._height)
-
 class TestSequencerFrame(unittest.TestCase):
-    def test_column(self):
+    # Tests for create
+    def test_create_text(self):
         frame = SequencerFrame(root)
         frame.grid(row=0, column=0)
-        frame.init_steps()
-        frame.position_steps()
+        frame.create()
+        self.assertEqual("4", frame.step_list[3]._text)
 
-        self.assertEqual(3, frame.step_list[4].grid._column)
+    def test_create_color_grey1(self):
+        frame = SequencerFrame(root)
+        frame.grid(row=0, column=0)
+        frame.create()
+        self.assertEqual(GREY_1, frame.step_list[1]._fg_color)
+
+    def test_create_color_grey2(self):
+        frame = SequencerFrame(root)
+        frame.grid(row=0, column=0)
+        frame.create()
+        # frame.position_steps()
+        self.assertEqual(GREY_2, frame.step_list[4]._fg_color)
+
+    # Tests for position
 
 
-
-
-
-
-# if __name__ == "__main__":
-#     unittest.main()
-
-
-
-root.mainloop()
