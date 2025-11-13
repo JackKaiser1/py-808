@@ -1,5 +1,5 @@
 import customtkinter 
-from constants import SOUND_BUTTON_HEIGHT, SOUND_BUTTON_WIDTH, SOUND_BUTTON_PAD_x, SOUND_BUTTON_PAD_Y, GREY_1
+from constants import SOUND_BUTTON_HEIGHT, SOUND_BUTTON_WIDTH, SOUND_BUTTON_PAD_X, SOUND_BUTTON_PAD_Y, GREY_1
 from drum_name_dict import drum_name_dict
 from custom_frame import CustomFrame
 
@@ -31,7 +31,7 @@ class SoundSelectFrame(CustomFrame):
     def position(self):
         i = 0
         for sound_button in self.sound_button_list:
-            sound_button.grid(row=0, column=i, padx=SOUND_BUTTON_PAD_x, pady=SOUND_BUTTON_PAD_Y)
+            sound_button.grid(row=0, column=i, padx=SOUND_BUTTON_PAD_X, pady=SOUND_BUTTON_PAD_Y)
             i += 1
 
 
