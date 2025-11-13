@@ -17,7 +17,23 @@ SOUND_BUTTON_PAD_X = 6
 SOUND_BUTTON_PAD_Y = 10
 
 # Fader values
-FADER_HEIGHT = 300
+FADER_HEIGHT = 230
 
 FADER_PAD_X = 25
 FADER_PAD_Y = 5
+
+# play / pause button values
+PLAY_PAUSE_HEIGHT = 50
+PLAY_PAUSE_WIDTH = 100
+
+# BPM slider values
+
+
+
+# BPM label values
+BPM_LABEL_HEIGHT = 50
+BPM_LABEL_WIDTH = 50
+
+# Pattern select button values
+PATTERN_SELECT_HEIGHT = 50
+PATTERN_SELECT_WIDTH = 50
