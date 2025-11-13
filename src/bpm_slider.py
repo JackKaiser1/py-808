@@ -10,6 +10,7 @@ class BPMSlider(customtkinter.CTkSlider):
             *args, 
             **kwargs)
         
+        
 class BPMLabel(customtkinter.CTkLabel):
     def __init__(self, *args, **kwargs):
         super().__init__(
@@ -21,15 +22,16 @@ class BPMLabel(customtkinter.CTkLabel):
             **kwargs)
         
     def get_value(self, bpm_slider_value):
-        self.configure(text=bpm_slider_value)
+        self.configure(text=int(bpm_slider_value))
+
 
 class BPMSliderFrame(customtkinter.CTkFrame):
     def __init__(self, parent):
         super().__init__(parent)
         
         # Init slider and label 
-        self.bpm_slider = BPMSlider(self)
-        self.bpm_label = BPMLabel(self, text=self.bpm_slider.get())
+        self.bpm_label = BPMLabel(self, text="130")
+        self.bpm_slider = BPMSlider(self, command=self.bpm_label.get_value)
 
         # Position slider and label
         self.bpm_slider.grid(row=1, column=0, padx=5, pady=5)

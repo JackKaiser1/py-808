@@ -22,7 +22,7 @@ class Root(customtkinter.CTk):
         self.sequencer.grid(row=3, column=0, pady=10)
         self.sound_select_buttons.grid(row=2, column=0, pady=10)
         self.faders.grid(row=1, column=0, pady=(20, 10))
-        self.control_buttons.grid(row=0, column=0, pady=(60, 20))
+        self.control_buttons.grid(row=0, column=0, pady=(60, 10))
 
         # Center widgets in column 0
         self.grid_columnconfigure(0, weight=1)

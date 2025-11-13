@@ -34,6 +34,8 @@ PLAY_PAUSE_WIDTH = 100
 BPM_LABEL_HEIGHT = 50
 BPM_LABEL_WIDTH = 50
 
-# Pattern select button values
-PATTERN_SELECT_HEIGHT = 50
-PATTERN_SELECT_WIDTH = 50
+# Pattern select button / copy button values
+PATTERN_COPY_HEIGHT = 50
+PATTERN_COPY_WIDTH = 50
+
+
