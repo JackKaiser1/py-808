@@ -12,7 +12,7 @@ frame.grid(row=0, column=0)
 frame.create()
 
 class TestSequencerFrame(unittest.TestCase):
-
+    
     # Tests for create() ----------------------------------------
     def test_create_text(self):
         self.assertEqual("4", frame.step_list[3]._text)
