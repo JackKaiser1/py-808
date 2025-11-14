@@ -11,4 +11,9 @@ class PatternSelect(customtkinter.CTkButton):
             *args, 
             **kwargs)
         
+        self.pattern = 0
+
+    def select_pattern():
+        pass
+        
 
