@@ -1,6 +1,7 @@
 import customtkinter 
-from constants import STEP_HEIGHT, STEP_WIDTH, GREY_1, GREY_2, STEP_PAD_X, STEP_PAD_Y
+from constants import STEP_HEIGHT, STEP_WIDTH, GREY_1, GREY_2, STEP_PAD_X, STEP_PAD_Y, ORANGE_1, ORANGE_2
 from custom_frame import CustomFrame
+from sound_mixer import drum
 
 class StepButton(customtkinter.CTkButton):
     def __init__(self, *args, **kwargs):
@@ -8,8 +9,33 @@ class StepButton(customtkinter.CTkButton):
             height=STEP_HEIGHT, 
             width=STEP_WIDTH, 
             hover=None,
+            command=lambda: self.populate_step(self, drum.current_drum),
             *args, 
             **kwargs) 
+        
+    def populate_step(self, step, current_drum):
+        beat = int(step._text)
+        beat_list = current_drum.beat_list
+        back_beat = [5,6,7,8,13,14,15,16]
+        step_color = step._fg_color
+
+        # Populate steps
+        if step_color == GREY_1:
+            beat_list.add(beat)
+            step.configure(fg_color=ORANGE_1)
+        elif step_color == GREY_2:
+            beat_list.add(beat)
+            step.configure(fg_color=ORANGE_2)
+
+        # Depopulate steps
+        elif beat in back_beat and step_color == ORANGE_2:
+            beat_list.remove(beat)
+            step.configure(fg_color=GREY_2)
+        else:
+            beat_list.remove(beat)
+            step.configure(fg_color=GREY_1)
+
+        print(beat_list)
         
     
 

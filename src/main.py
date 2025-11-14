@@ -4,6 +4,7 @@ from sound_select import SoundSelectFrame, SoundSelectButton
 from faders import VolumeFaderFrame, VolumeFader
 from control_buttons_frame import ControlButtonsFrame
 
+
 class Root(customtkinter.CTk):
     def __init__(self):
         super().__init__()     
@@ -26,6 +27,8 @@ class Root(customtkinter.CTk):
 
         # Center widgets in column 0
         self.grid_columnconfigure(0, weight=1)
+
+
 
         
 

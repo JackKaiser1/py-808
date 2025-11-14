@@ -2,6 +2,9 @@
 GREY_1 = "grey"
 GREY_2 = "darkgrey"
 
+ORANGE_1 = "orange"
+ORANGE_2 = "dark orange"
+
 # Step button values
 STEP_HEIGHT = 55
 STEP_WIDTH = 55

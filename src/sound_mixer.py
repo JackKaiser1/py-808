@@ -1,7 +1,13 @@
 import pygame
 from pygame import mixer
-from sound_class import DrumSample, Counter
+# from sound_class import DrumSample, Counter
 from assets import *
+
+class DrumSample(pygame.mixer.Sound):
+    def __init__(self, filename):
+        super().__init__(filename)
+        self.beat_list = set()
+        self.filename = filename
 
 # Init pygame mixer
 pygame.mixer.init(channels=1)
@@ -43,6 +49,17 @@ channel_13 = pygame.mixer.Channel(13)
 channel_14 = pygame.mixer.Channel(14)
 channel_15 = pygame.mixer.Channel(15)
 
+class Counter():
+    def __init__(self):
+        self.count = 0
+
+class Drum():
+    def __init__(self):
+        self.current_drum = kick
+
+# Init drum and counter objects
+counter = Counter()
+drum = Drum()
 
 def play_kick():
     channel_0.play()
@@ -89,5 +106,5 @@ def play():
 
 
 
-play()
+
 
