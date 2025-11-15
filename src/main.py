@@ -36,7 +36,7 @@ class Root(customtkinter.CTk):
 def main():
     root = Root()
     root.sequencer.create()
-    root.sound_select_buttons.create()
+    root.sound_select_buttons.create(root)
     root.faders.create()
     root.mainloop()
 

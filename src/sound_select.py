@@ -25,7 +25,7 @@ class SoundSelectFrame(CustomFrame):
         self.sound_buttons = []
 
 
-    def create(self):
+    def create(self, parent):
         drum_names = drum_name_dict.keys()
         sound_buttons = self.sound_buttons
         for drum_name in drum_names:
@@ -34,18 +34,18 @@ class SoundSelectFrame(CustomFrame):
             else:
                 sound_buttons.append(SoundSelectButton(self, text=drum_name, fg_color=GREY_1))
 
-        self.init_command()
+        self.init_command(parent)
         self.position()
 
 
-    def init_command(self):
+    def init_command(self, parent):
         sound_buttons = self.sound_buttons 
         for sound_button in sound_buttons:
-            self.set_command(sound_button)
+            self.set_command(sound_button, parent)
 
 
-    def set_command(self, sound_button):
-        sound_button.configure(command=lambda: self.select_drum(sound_button))
+    def set_command(self, sound_button, parent):
+        sound_button.configure(command=lambda: self.select_drum(sound_button, parent))
 
 
     def position(self):
@@ -55,14 +55,15 @@ class SoundSelectFrame(CustomFrame):
             i += 1
     
 
-    def select_drum(self, sound_button):
+    def select_drum(self, sound_button, parent):
         selected_drum_name = sound_button._text
-        print(selected_drum_name)
         new_drum_sound = drum_name_dict[selected_drum_name]
 
         drum.current_drum = new_drum_sound
-        self.activate_button(sound_button)
 
+        self.activate_button(sound_button)
+        parent.sequencer.display_pattern()
+        
 
     def activate_button(self, selected_button):
         sound_buttons = self.sound_buttons
@@ -71,11 +72,3 @@ class SoundSelectFrame(CustomFrame):
                 inactive_button.configure(fg_color=GREY_1)
 
         selected_button.configure(fg_color=ORANGE_1)
-
-
-
-
-
-
-
-    

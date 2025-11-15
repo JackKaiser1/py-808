@@ -20,7 +20,6 @@ class StepButton(customtkinter.CTkButton):
         back_beat = [5,6,7,8,13,14,15,16]
         step_color = step._fg_color
 
-        # Populate steps
         if step_color == GREY_1:
             beat_list.add(beat)
             step.configure(fg_color=ORANGE_1)
@@ -28,7 +27,6 @@ class StepButton(customtkinter.CTkButton):
             beat_list.add(beat)
             step.configure(fg_color=ORANGE_2)
 
-        # Depopulate steps
         elif beat in back_beat and step_color == ORANGE_2:
             beat_list.remove(beat)
             step.configure(fg_color=GREY_2)
@@ -55,9 +53,29 @@ class SequencerFrame(CustomFrame):
             else:
                 self.step_list.append(StepButton(self, text=f"{i}", fg_color=GREY_2))
         self.position()
-        
+         
+
     def position(self):
         i = 0
         for step in self.step_list:
             step.grid(row=0, column=i, padx=STEP_PAD_X, pady=STEP_PAD_Y) 
             i += 1 
+
+
+    def display_pattern(self):
+        step_list = self.step_list
+
+        for step in step_list:
+            step_num = int(step._text)
+            beat_list = drum.current_drum.beat_list
+
+            if step_num in beat_list:
+                if step._fg_color == GREY_1:
+                    step.configure(fg_color=ORANGE_1)
+                elif step._fg_color == GREY_2:
+                    step.configure(fg_color=ORANGE_2)
+
+            elif step._fg_color == ORANGE_1:
+                step.configure(fg_color=GREY_1)
+            elif step._fg_color == ORANGE_2:
+                step.configure(fg_color=GREY_2)

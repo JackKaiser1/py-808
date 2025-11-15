@@ -9,7 +9,7 @@ from constants import *
 root = customtkinter.CTk()
 frame = SoundSelectFrame(root)
 frame.grid(row=0, column=0)
-frame.create()
+frame.create(frame)
 
 class TestSoundSelectFrame(unittest.TestCase):
     # Tests for create() ----------------------------------------
