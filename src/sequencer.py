@@ -13,6 +13,7 @@ class StepButton(customtkinter.CTkButton):
             *args, 
             **kwargs) 
         
+
     def populate_step(self, step, current_drum):
         beat = int(step._text)
         beat_list = current_drum.beat_list
