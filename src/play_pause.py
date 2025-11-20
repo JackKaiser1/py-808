@@ -15,28 +15,14 @@ class PlayButton(customtkinter.CTkButton):
             **kwargs)
         
         self.playing = False
+        self.played = 0
         
     def play(self):
-        # i = 0
-        # count = 1
-        # if count > i:
         loop()  
-
-        # time.sleep(0.1)
-        # i += 1
-        # count += 1
-
-        # if count == 16:
-        #     i = 0
-        #     count = 1
         PlayButton.after(self, 110, self.play)
 
-    def start(self):
-        loop()
-        while True:
-            # self.play()
-            PlayButton.after(self, 110, loop())
-
+    
+        
         
      
 
