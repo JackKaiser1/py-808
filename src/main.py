@@ -3,6 +3,7 @@ from sequencer import StepButton, SequencerFrame
 from sound_select import SoundSelectFrame, SoundSelectButton
 from faders import VolumeFaderFrame, VolumeFader
 from control_buttons_frame import ControlButtonsFrame
+from sound_mixer import *
 
 
 class Root(customtkinter.CTk):

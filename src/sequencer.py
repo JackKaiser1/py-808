@@ -1,7 +1,8 @@
 import customtkinter 
 from constants import STEP_HEIGHT, STEP_WIDTH, GREY_1, GREY_2, STEP_PAD_X, STEP_PAD_Y, ORANGE_1, ORANGE_2
 from custom_frame import CustomFrame
-from sound_mixer import drum
+from sound_mixer import *
+
 
 class StepButton(customtkinter.CTkButton):
     def __init__(self, *args, **kwargs):

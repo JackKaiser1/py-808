@@ -2,6 +2,7 @@ import pygame
 from pygame import mixer
 # from sound_class import DrumSample, Counter
 from assets import *
+# from drum_obj_dict import drum_obj_dict
 
 class DrumSample(pygame.mixer.Sound):
     def __init__(self, filename):
@@ -62,46 +63,94 @@ counter = Counter()
 drum = Drum()
 
 def play_kick():
-    channel_0.play()
+    channel_0.play(kick)
 def play_snare():
-    channel_1.play()
+    channel_1.play(snare)
 def play_clap():
-    channel_2.play()
+    channel_2.play(clap)
 def play_hihat():
-    channel_3.play()
+    channel_3.play(hihat)
 def play_rim():
-    channel_4.play()
+    channel_4.play(rim)
 def play_cowbell():
-    channel_5.play()
+    channel_5.play(cowbell)
 def play_cymbal():
-    channel_6.play()
+    channel_6.play(crash)
 def play_open_hat():
-    channel_7.play()
+    channel_7.play(open_hat)
 def play_maracas():
-    channel_8.play()
+    channel_8.play(maracas)
 def play_claves():
-    channel_9.play()
+    channel_9.play(clav)
 def play_tom_low():
-    channel_10.play()
+    channel_10.play(tom_low)
 def play_tom_mid():
-    channel_11.play()
+    channel_11.play(tom_mid)
 def play_tom_hi():
-    channel_12.play()
+    channel_12.play(tom_hi)
 def play_conga_low():
-    channel_13.play()
+    channel_13.play(conga_low)
 def play_conga_mid():
-    channel_14.play()
+    channel_14.play(conga_mid)
 def play_conga_hi():
-    channel_15.play()
+    channel_15.play(conga_hi)
 
 
-def play():
-    while True:
-        key = input()
-        if key == "e":
-            channel_0.play(conga_hi)
-        else: 
-            break
+drum_obj_dict = {kick : play_kick,
+                  snare : play_snare,
+                  clap : play_clap,
+                  hihat : play_hihat, 
+                  rim : play_rim,
+                  cowbell : play_cowbell,
+                  crash : play_cymbal,
+                  open_hat : play_open_hat,
+                  maracas : play_maracas,
+                  clav : play_claves,
+                  tom_low : play_tom_low,
+                  tom_mid : play_tom_mid,
+                  tom_hi : play_tom_hi,
+                  conga_low : play_conga_low,
+                  conga_mid : play_conga_mid,
+                  conga_hi : play_conga_hi,}
+
+def loop():
+    counter.count += 1
+    for drum_obj in drum_obj_dict.keys():
+        if counter.count in drum_obj.beat_list:
+            drum_obj_dict[drum_obj]()
+
+    if counter.count == 16:
+        counter.count = 0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# def play():
+#     while True:
+#         key = input()
+#         if key == "e":
+#             channel_0.play(conga_hi)
+#         else: 
+#             break
 
 
 

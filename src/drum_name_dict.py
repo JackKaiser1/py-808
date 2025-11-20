@@ -16,3 +16,4 @@ drum_name_dict = {"KICK": kick,
                "CONGA L": conga_low,
                "CONGA M": conga_mid,
                "CONGA H": conga_hi,}
+
