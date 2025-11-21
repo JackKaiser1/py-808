@@ -6,8 +6,9 @@ from unittest.mock import patch, MagicMock
 import customtkinter
 from sound_select import SoundSelectFrame
 from constants import *
-from sound_mixer import drum, snare, hihat, tom_hi
+from sound_mixer import *
 from sequencer import SequencerFrame
+from sound_class import drum
 
 
 class TestRoot(customtkinter.CTk):
@@ -87,7 +88,7 @@ class TestSoundSelectFrame(unittest.TestCase):
 
         current_drum = drum.current_drum
         
-        self.assertEqual(snare, current_drum)
+        self.assertEqual(drum_rack.snare, current_drum)
 
     def test_select_drum_hihat(self):
         hihat_button = root.sound_select_buttons.sound_buttons[3]
@@ -95,7 +96,7 @@ class TestSoundSelectFrame(unittest.TestCase):
 
         current_drum = drum.current_drum
         
-        self.assertEqual(hihat, current_drum)
+        self.assertEqual(drum_rack.hihat, current_drum)
 
     def test_select_drum_tom_hi(self):
         tom_hi_button = root.sound_select_buttons.sound_buttons[12]
@@ -103,7 +104,7 @@ class TestSoundSelectFrame(unittest.TestCase):
 
         current_drum = drum.current_drum
         
-        self.assertEqual(tom_hi, current_drum)
+        self.assertEqual(drum_rack.tom_hi, current_drum)
 
     # ----- Test activate_button
     def test_activate_button_snare(self):

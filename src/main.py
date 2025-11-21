@@ -4,6 +4,8 @@ from sound_select import SoundSelectFrame, SoundSelectButton
 from faders import VolumeFaderFrame, VolumeFader
 from control_buttons_frame import ControlButtonsFrame
 from sound_mixer import *
+from sound_class import drum
+
 
 
 class Root(customtkinter.CTk):
@@ -36,6 +38,7 @@ class Root(customtkinter.CTk):
 
 def main():
     root = Root()
+    drum.current_drum = drum_rack.kick
     root.sequencer.create()
     root.sound_select_buttons.create(root)
     root.faders.create()

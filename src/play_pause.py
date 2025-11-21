@@ -18,7 +18,7 @@ class PlayButton(customtkinter.CTkButton):
         self.played = 0
         
     def play(self):
-        loop()  
+        drum_rack.loop()  
         PlayButton.after(self, 110, self.play)
 
     
