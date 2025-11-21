@@ -92,10 +92,10 @@ class TestSequencerFrame(unittest.TestCase):
         self.assertEqual(ORANGE_1, root.sequencer.step_list[2]._fg_color)
         self.assertEqual(ORANGE_2, root.sequencer.step_list[6]._fg_color)
 
-        beat_list.clear()
+        drum.current_drum.beat_list.clear()
         root.sound_select_buttons.select_drum(kick_button, root)
         beat_list = drum.current_drum.beat_list
-        beat_list.clear()
+        drum.current_drum.beat_list.clear()
 
 
     def test_display_pattern_kick(self):
@@ -119,10 +119,10 @@ class TestSequencerFrame(unittest.TestCase):
         self.assertEqual(ORANGE_1, root.sequencer.step_list[3]._fg_color)
         self.assertEqual(ORANGE_1, root.sequencer.step_list[9]._fg_color)
 
-        beat_list.clear()
+        drum.current_drum.beat_list.clear()
         root.sound_select_buttons.select_drum(kick_button, root)
         beat_list = drum.current_drum.beat_list
-        beat_list.clear()
+        drum.current_drum.beat_list.clear()
 
 
 

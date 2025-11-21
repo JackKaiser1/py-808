@@ -68,13 +68,17 @@ class DrumRack():
 
     # Advances step sequencer - called in loop by play button
     def loop(self):
+        played_sounds = []
         counter.count += 1
         for drum_obj in self.drum_obj_dict.keys():
             if counter.count in drum_obj.beat_list:
                 self.drum_obj_dict[drum_obj]()
+                played_sounds.append(drum_obj.beat_list)
 
         if counter.count == 16:
             counter.count = 0
+
+        return played_sounds
 
     # Play methods
     def play_kick(self):
