@@ -82,37 +82,52 @@ class DrumRack():
 
     # Play methods
     def play_kick(self):
-        self.channel_0.set_volume(0.8)
+        self.channel_0.set_volume(self.kick.volume)
         self.channel_0.play(self.kick)
     def play_snare(self):
+        self.channel_1.set_volume(self.snare.volume)
         self.channel_1.play(self.snare)
     def play_clap(self):
+        self.channel_2.set_volume(self.clap.volume)
         self.channel_2.play(self.clap)
     def play_hihat(self):
+        self.channel_3.set_volume(self.hihat.volume)
         self.channel_3.play(self.hihat)
     def play_rim(self):
+        self.channel_4.set_volume(self.rim.volume)
         self.channel_4.play(self.rim)
     def play_cowbell(self):
+        self.channel_5.set_volume(self.cowbell.volume)
         self.channel_5.play(self.cowbell)
     def play_cymbal(self):
+        self.channel_6.set_volume(self.crash.volume)
         self.channel_6.play(self.crash)
     def play_open_hat(self):
+        self.channel_7.set_volume(self.open_hat.volume)
         self.channel_7.play(self.open_hat)
     def play_maracas(self):
+        self.channel_8.set_volume(self.maracas.volume)
         self.channel_8.play(self.maracas)
     def play_claves(self):
+        self.channel_9.set_volume(self.clav.volume)
         self.channel_9.play(self.clav)
     def play_tom_low(self):
+        self.channel_10.set_volume(self.tom_low.volume)
         self.channel_10.play(self.tom_low)
     def play_tom_mid(self):
+        self.channel_11.set_volume(self.tom_mid.volume)
         self.channel_11.play(self.tom_mid)
     def play_tom_hi(self):
+        self.channel_12.set_volume(self.tom_hi.volume)
         self.channel_12.play(self.tom_hi)
     def play_conga_low(self):
+        self.channel_13.set_volume(self.conga_low.volume)
         self.channel_13.play(self.conga_low)
     def play_conga_mid(self):
+        self.channel_14.set_volume(self.conga_mid.volume)
         self.channel_14.play(self.conga_mid)
     def play_conga_hi(self):
+        self.channel_15.set_volume(self.conga_hi.volume)
         self.channel_15.play(self.conga_hi)
 
     

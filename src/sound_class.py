@@ -6,6 +6,7 @@ class DrumSample(pygame.mixer.Sound):
     def __init__(self, filename):
         super().__init__(filename)
         self.beat_list = set()
+        self.volume = 0.5
         self.filename = filename
 
 
