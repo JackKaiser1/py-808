@@ -30,12 +30,12 @@ class StepButton(customtkinter.CTkButton):
                 beat_list.add(beat)
                 step.configure(fg_color=ORANGE_2)
 
+            elif step_color == ORANGE_1:
+                beat_list.remove(beat)
+                step.configure(fg_color=GREY_1)
             elif beat in back_beat and step_color == ORANGE_2:
                 beat_list.remove(beat)
                 step.configure(fg_color=GREY_2)
-            else:
-                beat_list.remove(beat)
-                step.configure(fg_color=GREY_1)
 
             print(beat_list)
         
@@ -50,6 +50,7 @@ class SequencerFrame(CustomFrame):
         self.step_list = []
         self.previous_color = None
         self.j = -1
+        self.switch_pattern = False
 
     def create(self):
         for i in range(1, 17):
@@ -69,6 +70,7 @@ class SequencerFrame(CustomFrame):
 
     def display_pattern(self):
         step_list = self.step_list
+        self.switch_pattern = True
 
         for step in step_list:
             step_num = int(step._text)
@@ -84,6 +86,7 @@ class SequencerFrame(CustomFrame):
                 step.configure(fg_color=GREY_1)
             elif step._fg_color == ORANGE_2:
                 step.configure(fg_color=GREY_2)
+
 
     
     def display_tempo(self):
@@ -108,3 +111,4 @@ class SequencerFrame(CustomFrame):
         self.previous_color = None
 
         return self.j, self.previous_color
+    

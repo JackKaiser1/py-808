@@ -34,6 +34,11 @@ class ControlButtonsFrame(customtkinter.CTkFrame):
 
         drum_rack.loop()  
         parent.sequencer.display_tempo()
+
+        if parent.sequencer.switch_pattern == True:
+            parent.sequencer.display_pattern()
+            parent.sequencer.switch_pattern = False
+
         PlayButton.after(self, 110, self.play, parent)
 
     def pause(self):
