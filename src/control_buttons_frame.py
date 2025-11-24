@@ -11,7 +11,7 @@ class ControlButtonsFrame(customtkinter.CTkFrame):
         super().__init__(parent)
 
         # Init objects buttons
-        self.play_button = PlayButton(self, command=self.play)
+        self.play_button = PlayButton(self, command=lambda: self.play(parent))
         self.pause_button = PauseButton(self, command=self.pause)
         self.bpm = BPMSliderFrame(self)
 
@@ -23,16 +23,18 @@ class ControlButtonsFrame(customtkinter.CTkFrame):
 
 
 
-    def play(self):
+    def play(self, parent):
         if self.pause_track == True:
             self.pause_track = False
+            parent.sequencer.stop_display_tempo()
             return 
         
         self.play_button.grid_forget()
         self.pause_button.grid(row=0, column=0, padx=(10, 550), pady=10)
 
         drum_rack.loop()  
-        PlayButton.after(self, 110, self.play)
+        parent.sequencer.display_tempo()
+        PlayButton.after(self, 110, self.play, parent)
 
     def pause(self):
         self.pause_track = True

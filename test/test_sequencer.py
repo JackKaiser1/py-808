@@ -9,7 +9,7 @@ from sequencer import SequencerFrame, StepButton
 from sound_select import SoundSelectFrame
 from constants import *
 from src.assets import *
-from sound_mixer import drum
+from sound_mixer import *
 
 # root = customtkinter.CTk()
 # frame = SequencerFrame(root)
@@ -124,6 +124,87 @@ class TestSequencerFrame(unittest.TestCase):
         beat_list = drum.current_drum.beat_list
         drum.current_drum.beat_list.clear()
 
+
+    # Test display_tempo
+    def test_display_tempo_1(self):
+        root.sequencer.display_tempo()
+        step_1_color = root.sequencer.step_list[0]._fg_color
+
+        self.assertEqual(ACTIVE_STEP, step_1_color)
+        root.sequencer.stop_display_tempo()
+
+
+    def test_display_tempo_2(self):
+        root.sequencer.display_tempo()
+        root.sequencer.display_tempo()
+        root.sequencer.display_tempo()
+
+        step_3_color = root.sequencer.step_list[2]._fg_color
+
+        self.assertEqual(ACTIVE_STEP, step_3_color)
+        root.sequencer.stop_display_tempo()
+
+
+    def test_display_tempo_3(self):
+        root.sequencer.display_tempo()
+        root.sequencer.display_tempo()
+        root.sequencer.display_tempo()
+        root.sequencer.display_tempo()
+        root.sequencer.display_tempo()
+        root.sequencer.display_tempo()
+
+        step_6_color = root.sequencer.step_list[5]._fg_color
+
+        self.assertEqual(ACTIVE_STEP, step_6_color)
+        root.sequencer.stop_display_tempo()
+
+
+    def test_display_tempo_4(self):
+        root.sequencer.display_tempo()
+        root.sequencer.display_tempo()
+
+        step_list_1_color = root.sequencer.step_list[0]._fg_color
+
+        self.assertEqual(GREY_1, step_list_1_color)
+        root.sequencer.stop_display_tempo()
+
+
+    def test_display_tempo_5(self):
+        root.sequencer.display_tempo()
+        root.sequencer.display_tempo()
+        root.sequencer.display_tempo()
+        root.sequencer.display_tempo()
+        root.sequencer.display_tempo()
+        root.sequencer.display_tempo()
+
+
+        step_5_color = root.sequencer.step_list[4]._fg_color
+
+        self.assertEqual(GREY_2, step_5_color)
+        root.sequencer.stop_display_tempo()
+
+
+    # Test stop_display_tempo
+    def test_stop_display_tempo_1(self):
+        root.sequencer.display_tempo()
+        root.sequencer.display_tempo()
+        root.sequencer.display_tempo()
+
+        root.sequencer.stop_display_tempo()
+
+        self.assertEqual(-1, root.sequencer.j)
+
+    def test_stop_display_tempo_2(self):
+        root.sequencer.display_tempo()
+        root.sequencer.display_tempo()
+        root.sequencer.display_tempo()
+        root.sequencer.display_tempo()
+        root.sequencer.display_tempo()
+        root.sequencer.display_tempo()
+
+        root.sequencer.stop_display_tempo()
+
+        self.assertEqual(None, root.sequencer.previous_color)
 
 
 

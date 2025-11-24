@@ -82,7 +82,8 @@ class DrumRack():
 
     # Play methods
     def play_kick(self):
-       self.channel_0.play(self.kick)
+        self.channel_0.set_volume(0.8)
+        self.channel_0.play(self.kick)
     def play_snare(self):
         self.channel_1.play(self.snare)
     def play_clap(self):

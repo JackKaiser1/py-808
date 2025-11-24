@@ -43,17 +43,17 @@ root.faders.create()
 
 class TestPlayButton(unittest.TestCase):
     def test_play_button_hide_play(self):
-        root.control_buttons.play()
+        root.control_buttons.play(root)
 
         self.assertEqual({}, root.control_buttons.play_button.grid_info())
 
     def test_play_button_draw_pause_1(self):
-        root.control_buttons.play()
+        root.control_buttons.play(root)
 
         self.assertEqual((10, 550), root.control_buttons.pause_button.grid_info()["padx"])
 
     def test_play_button_draw_pause_2(self):
-        root.control_buttons.play()
+        root.control_buttons.play(root)
 
         self.assertEqual(10, root.control_buttons.pause_button.grid_info()["pady"])
 
@@ -63,25 +63,25 @@ class TestPauseButton(unittest.TestCase):
         root.control_buttons.pause()
 
         self.assertEqual(True, root.control_buttons.pause_track)
-        root.control_buttons.play()
+        root.control_buttons.play(root)
 
     def test_pause_button_hide_pause(self):
         root.control_buttons.pause()
 
         self.assertEqual({}, root.control_buttons.pause_button.grid_info())
-        root.control_buttons.play()
+        root.control_buttons.play(root)
 
     def test_pause_button_draw_play_1(self):
         root.control_buttons.pause()
 
         self.assertEqual((10, 550), root.control_buttons.play_button.grid_info()["padx"])
-        root.control_buttons.play()
+        root.control_buttons.play(root)
 
     def test_pause_button_draw_play_2(self):
         root.control_buttons.pause()
 
         self.assertEqual(10, root.control_buttons.play_button.grid_info()["pady"])
-        root.control_buttons.play()
+        root.control_buttons.play(root)
 
     
     
