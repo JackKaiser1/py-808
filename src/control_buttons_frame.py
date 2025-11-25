@@ -22,7 +22,8 @@ class ControlButtonsFrame(customtkinter.CTkFrame):
 
         self.pause_track = False
 
-        self.next_beat = time.monotonic() 
+        self.next_beat = time.monotonic()
+        self.interval = 0.110
 
 
 
@@ -36,16 +37,16 @@ class ControlButtonsFrame(customtkinter.CTkFrame):
         self.pause_button.grid(row=0, column=0, padx=(10, 550), pady=10)
 
         current = time.monotonic()
-
+        
         if current >= self.next_beat:
             drum_rack.loop()  
             parent.sequencer.display_tempo()
 
+            self.next_beat = time.monotonic() + self.interval
+
             if parent.sequencer.switch_pattern == True:
                 parent.sequencer.display_pattern()
                 parent.sequencer.switch_pattern = False
-
-            self.next_beat += 0.110
 
         PlayButton.after(self, 1, self.play, parent)
         
@@ -56,5 +57,4 @@ class ControlButtonsFrame(customtkinter.CTkFrame):
         self.play_button.grid(row=0, column=0, padx=(10, 550), pady=10)
         counter.count = 0
 
-        
 
