@@ -70,6 +70,7 @@ class DrumRack():
     def loop(self):
         played_sounds = []
         counter.count += 1
+
         for drum_obj in self.drum_obj_dict.keys():
             if counter.count in drum_obj.beat_list:
                 self.drum_obj_dict[drum_obj]()

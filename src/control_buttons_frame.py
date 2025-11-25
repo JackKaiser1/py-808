@@ -5,6 +5,7 @@ from pattern_select import PatternSelect
 from copy_button import CopyButton
 from sound_mixer import drum_rack
 from sound_class import counter
+import time
 
 class ControlButtonsFrame(customtkinter.CTkFrame):
     def __init__(self, parent):
@@ -21,6 +22,8 @@ class ControlButtonsFrame(customtkinter.CTkFrame):
 
         self.pause_track = False
 
+        self.next_beat = time.monotonic() 
+
 
 
     def play(self, parent):
@@ -32,18 +35,26 @@ class ControlButtonsFrame(customtkinter.CTkFrame):
         self.play_button.grid_forget()
         self.pause_button.grid(row=0, column=0, padx=(10, 550), pady=10)
 
-        drum_rack.loop()  
-        parent.sequencer.display_tempo()
+        current = time.monotonic()
 
-        if parent.sequencer.switch_pattern == True:
-            parent.sequencer.display_pattern()
-            parent.sequencer.switch_pattern = False
+        if current >= self.next_beat:
+            drum_rack.loop()  
+            parent.sequencer.display_tempo()
 
-        PlayButton.after(self, 110, self.play, parent)
+            if parent.sequencer.switch_pattern == True:
+                parent.sequencer.display_pattern()
+                parent.sequencer.switch_pattern = False
+
+            self.next_beat += 0.110
+
+        PlayButton.after(self, 1, self.play, parent)
+        
 
     def pause(self):
         self.pause_track = True
         self.pause_button.grid_forget()
         self.play_button.grid(row=0, column=0, padx=(10, 550), pady=10)
         counter.count = 0
+
+        
 
