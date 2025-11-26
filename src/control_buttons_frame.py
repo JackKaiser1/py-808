@@ -23,7 +23,7 @@ class ControlButtonsFrame(customtkinter.CTkFrame):
         self.pause_track = False
 
         self.next_beat = time.monotonic()
-        self.interval = 0.110
+        self.interval = 0.115 
 
 
 

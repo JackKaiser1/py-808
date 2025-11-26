@@ -9,6 +9,7 @@ class BPMSlider(customtkinter.CTkSlider):
             to=250,
             *args, 
             **kwargs)
+                
         
         
 class BPMLabel(customtkinter.CTkLabel):
@@ -23,6 +24,7 @@ class BPMLabel(customtkinter.CTkLabel):
         
     def get_value(self, bpm_slider_value):
         self.configure(text=int(bpm_slider_value))
+        return bpm_slider_value
 
 
 class BPMSliderFrame(customtkinter.CTkFrame):
@@ -31,8 +33,15 @@ class BPMSliderFrame(customtkinter.CTkFrame):
         
         # Init slider and label 
         self.bpm_label = BPMLabel(self, text="130")
-        self.bpm_slider = BPMSlider(self, command=self.bpm_label.get_value)
+        self.bpm_slider = BPMSlider(self, command=lambda bpm: [self.set_bpm(bpm, parent), self.bpm_label.get_value(bpm)])
 
         # Position slider and label
         self.bpm_slider.grid(row=1, column=0, padx=5, pady=5)
         self.bpm_label.grid(row=0, column=0, padx=5, pady=5)
+
+
+    def set_bpm(self, bpm, parent):
+        # Calculate the length of one 16th note
+        interval = ((60_000 // int(bpm)) // 4) / 1000
+        parent.interval = interval
+        return interval
