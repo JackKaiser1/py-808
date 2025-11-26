@@ -8,8 +8,11 @@ from sound_class import counter
 import time
 
 class ControlButtonsFrame(customtkinter.CTkFrame):
-    def __init__(self, parent):
-        super().__init__(parent)
+    def __init__(self, parent, *args, **kwargs):
+        super().__init__(parent, 
+                         fg_color="transparent",
+                         *args, 
+                         **kwargs)
 
         # Init objects buttons
         self.play_button = PlayButton(self, command=lambda: self.play(parent))
@@ -17,7 +20,7 @@ class ControlButtonsFrame(customtkinter.CTkFrame):
         self.bpm = BPMSliderFrame(self)
 
         # Position button objects
-        self.play_button.grid(row=0, column=0, padx=(10, 550), pady=10)
+        self.play_button.grid(row=0, column=0, padx=(10, 650), pady=10)
         self.bpm.grid(row=0, column=1, padx=10, pady=10)
 
         self.pause_track = False
@@ -34,7 +37,7 @@ class ControlButtonsFrame(customtkinter.CTkFrame):
             return 
         
         self.play_button.grid_forget()
-        self.pause_button.grid(row=0, column=0, padx=(10, 550), pady=10)
+        self.pause_button.grid(row=0, column=0, padx=(10, 650), pady=10)
 
         current = time.monotonic()
         
@@ -54,7 +57,7 @@ class ControlButtonsFrame(customtkinter.CTkFrame):
     def pause(self):
         self.pause_track = True
         self.pause_button.grid_forget()
-        self.play_button.grid(row=0, column=0, padx=(10, 550), pady=10)
+        self.play_button.grid(row=0, column=0, padx=(10, 650), pady=10)
         counter.count = 0
 
 

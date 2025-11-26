@@ -50,7 +50,7 @@ class TestPlayButton(unittest.TestCase):
     def test_play_button_draw_pause_1(self):
         root.control_buttons.play(root)
 
-        self.assertEqual((10, 550), root.control_buttons.pause_button.grid_info()["padx"])
+        self.assertEqual((10, 650), root.control_buttons.pause_button.grid_info()["padx"])
 
     def test_play_button_draw_pause_2(self):
         root.control_buttons.play(root)
@@ -74,7 +74,7 @@ class TestPauseButton(unittest.TestCase):
     def test_pause_button_draw_play_1(self):
         root.control_buttons.pause()
 
-        self.assertEqual((10, 550), root.control_buttons.play_button.grid_info()["padx"])
+        self.assertEqual((10, 650), root.control_buttons.play_button.grid_info()["padx"])
         root.control_buttons.play(root)
 
     def test_pause_button_draw_play_2(self):

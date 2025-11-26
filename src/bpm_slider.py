@@ -1,5 +1,5 @@
 import customtkinter
-from constants import BPM_LABEL_HEIGHT, BPM_LABEL_WIDTH, GREY_1
+from constants import BPM_LABEL_HEIGHT, BPM_LABEL_WIDTH, GREY_1, ORANGE_1, GREY_2, BPM_COLOR
 
 class BPMSlider(customtkinter.CTkSlider):
     def __init__(self, *args, **kwargs):
@@ -7,6 +7,8 @@ class BPMSlider(customtkinter.CTkSlider):
             orientation="horizontal",
             from_=10,
             to=250,
+            button_color=ORANGE_1,
+            hover=None,
             *args, 
             **kwargs)
                 
@@ -18,7 +20,8 @@ class BPMLabel(customtkinter.CTkLabel):
             height=BPM_LABEL_HEIGHT,
             width=BPM_LABEL_WIDTH,
             fg_color=None,
-            font=("Arial", 22),
+            font=("Roboto", 22),
+            text_color=BPM_COLOR,
             *args, 
             **kwargs)
         
@@ -37,7 +40,7 @@ class BPMSliderFrame(customtkinter.CTkFrame):
 
         # Position slider and label
         self.bpm_slider.grid(row=1, column=0, padx=5, pady=5)
-        self.bpm_label.grid(row=0, column=0, padx=5, pady=5)
+        self.bpm_label.grid(row=0, column=0, padx=5, pady=(15, 5))
 
 
     def set_bpm(self, bpm, parent):

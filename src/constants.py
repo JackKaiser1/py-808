@@ -2,10 +2,13 @@
 GREY_1 = "grey"
 GREY_2 = "darkgrey"
 
-ORANGE_1 = "orange"
-ORANGE_2 = "dark orange"
+ORANGE_1 = "#FF8712"
+ORANGE_2 = "#FFAB12"
 
-ACTIVE_STEP = "chocolate1"
+BACKGROUND = "#E9E9E9"
+FRAME = "#E6E6E6"
+
+ACTIVE_STEP = "#F56D27"
 
 # Step button values
 STEP_HEIGHT = 55
@@ -21,7 +24,7 @@ SOUND_BUTTON_WIDTH  = 55
 SOUND_BUTTON_PAD_X = 6
 SOUND_BUTTON_PAD_Y = 10
 
-# Fader values
+# Fader / values
 FADER_HEIGHT = 230
 
 FADER_PAD_X = 25
@@ -36,8 +39,9 @@ PLAY_PAUSE_WIDTH = 100
 
 
 # BPM label values
-BPM_LABEL_HEIGHT = 50
+BPM_LABEL_HEIGHT = 30
 BPM_LABEL_WIDTH = 50
+BPM_COLOR = "#4D4D4D"
 
 # Pattern select button / copy button values
 PATTERN_COPY_HEIGHT = 50

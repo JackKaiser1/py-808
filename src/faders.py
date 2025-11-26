@@ -1,5 +1,5 @@
 import customtkinter 
-from constants import FADER_HEIGHT, FADER_PAD_X, FADER_PAD_Y
+from constants import FADER_HEIGHT, FADER_PAD_X, FADER_PAD_Y, ORANGE_2, ORANGE_1
 from custom_frame import CustomFrame
 from drum_name_dict import drum_name_dict
 
@@ -10,6 +10,8 @@ class VolumeFader(customtkinter.CTkSlider):
             to=1,
             orientation="vertical",
             height=FADER_HEIGHT,
+            button_color=ORANGE_1,
+            hover=None,
             *args, 
             **kwargs)
         

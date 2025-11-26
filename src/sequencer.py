@@ -2,6 +2,7 @@ import customtkinter
 from constants import STEP_HEIGHT, STEP_WIDTH, GREY_1, GREY_2, STEP_PAD_X, STEP_PAD_Y, ORANGE_1, ORANGE_2, ACTIVE_STEP
 from custom_frame import CustomFrame
 from sound_mixer import *
+from constants import FRAME
 
 
 class StepButton(customtkinter.CTkButton):
@@ -37,7 +38,6 @@ class StepButton(customtkinter.CTkButton):
                 beat_list.remove(beat)
                 step.configure(fg_color=GREY_2)
 
-            print(beat_list)
         
     
 

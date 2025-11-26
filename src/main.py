@@ -5,12 +5,12 @@ from faders import VolumeFaderFrame, VolumeFader
 from control_buttons_frame import ControlButtonsFrame
 from sound_mixer import *
 from sound_class import drum
-
+from constants import BACKGROUND, FRAME
 
 
 class Root(customtkinter.CTk):
     def __init__(self):
-        super().__init__()     
+        super().__init__(fg_color=BACKGROUND)     
 
         # Init root window -------------------------------------------
         self.title("PY-808")
@@ -25,8 +25,8 @@ class Root(customtkinter.CTk):
         # Position frames
         self.sequencer.grid(row=3, column=0, pady=10)
         self.sound_select_buttons.grid(row=2, column=0, pady=10)
-        self.faders.grid(row=1, column=0, pady=(20, 10))
-        self.control_buttons.grid(row=0, column=0, pady=(60, 10))
+        self.faders.grid(row=1, column=0, pady=(0, 10))
+        self.control_buttons.grid(row=0, column=0, pady=(65, 10))
 
         # Center widgets in column 0
         self.grid_columnconfigure(0, weight=1)
