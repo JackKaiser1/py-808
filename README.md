@@ -19,7 +19,7 @@ PY-808 is a virtual drum machine based on the Roland TR-808 from 1980.  This pro
 - Adjust the volume of a drum pattern using the volume fader located directly above the labeled button
 - Adjust the BPM of your loop using the slider located in the top right
 
-## Install
+## Install (Linux)
 ### Requirements 
 - Python 3 
 - Pygame 2.6.1
