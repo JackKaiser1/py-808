@@ -1,6 +1,9 @@
 # PY-808
 ![py 808 gui](py808.png)
 
+> [!TIP]
+> See what PY-808 can do! - [Video Demonstration](https://www.youtube.com/watch?v=0TPWwug3g-M)
+
 ## About
 PY-808 is a virtual drum machine based on the Roland TR-808 from 1980.  This program can be used as a metronome to maintain a steady beat while practicing an instrument or simply as a way to explore rhythm.  If you have never programmed a drum loop before, simply play around and see what you can come up with!
 
